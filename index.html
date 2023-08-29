@@ -46,6 +46,18 @@
             </a-marker>
 
             <a-entity camera></a-entity>
+            <script>
+              AFRAME.registerComponent('rotate-on-click', {
+                init: function () {
+                  const entity = this.el;
+        
+                  entity.addEventListener('click', function () {
+                    // Rotate the entity by 45 degrees around the Y-axis on each click
+                    entity.object3D.rotation.y += THREE.Math.degToRad(45);
+                  });
+                },
+              });
+            </script>
         </a-scene>
     </body>
 </html>
